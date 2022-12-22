@@ -47,6 +47,9 @@ const getBookings=async(id)=>{
             {
                 const updateEvent=await BookedEventsModel.updateOne({_id:allBookings[i]._id},{$set:{status:"Expired"}})
             }
+        }
+        for(let i=0;i<allBookings.length;i++)
+        {
             const details=allBookings[i].eventID.timing.split("T")
             let payload={
                 createdBy:allBookings[i].createdByID.name,
